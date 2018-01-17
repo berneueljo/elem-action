@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/params.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">All files</a> / <a href="index.html">src</a> params.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">70% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>21/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>2/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">61.54% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>8/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">76% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>19/25</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">55x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {generalMarkers , rioMarkers} from './markers.js'
+&nbsp;
+rioMarkers.forEach(p  =&gt; p.value = 0)
+generalMarkers.forEach(p  =&gt; p.value = 0)
+&nbsp;
+var fn = function (key){
+ return this.find( i =&gt; i.key === key)
+}
+&nbsp;
+var approachOptions = [
+  { key: 'PJ',  label: 'Project approach' },
+  { key: 'BS',  label: 'Budget support' }
+]
+&nbsp;
+approachOptions.forKey = fn
+&nbsp;
+var getApproachName = function(value){
+  return approachOptions.find( i =&gt; i.key === value).label
+}
+&nbsp;
+&nbsp;
+&nbsp;
+var designStages = [
+  { key: 1, label: 'concept' , description: 'first preliminary step when the action is only a basic relevant idea'},
+  { key: 2, label: 'identification' , description: 'first active step where the justification, relevance of the action is defined'},
+  { key: 3, label: 'formulation' , description: 'second design stage where the action is fully defined'},
+  { key: 4, label: 'finalised' , description: 'action is ready for formal decision process'},
+  { key: 5, label: 'decided' , description: 'action is decided and implementation can start'}
+]
+designStages.forKey = fn
+&nbsp;
+var instrumentOptions =
+[{ key: 'DCI', label: 'Development Cooperation Instrument'},
+ { key: 'PI',  label: 'Partnership Instrument' },
+ { key: 'EIDHR', label: 'European Instrument for Democracy and Human Rights' },
+ { key: 'ENI', label: 'European Neighbourhood Instrument' },
+ { key: 'INSC', label: 'Instrument for Nuclear Safety Cooperation'},
+ { key: 'IcSP', label: 'Instrument contributing to Stability and Peace' },
+ { key: 'IPA', label: 'Instrument for Pre-Accession Assistance' },
+ { key: 'EDF', label: 'European Development Fund' }]
+&nbsp;
+instrumentOptions.forKey = fn
+&nbsp;
+ var getInstrumentName = <span class="fstat-no" title="function not covered" >function(value){</span>
+<span class="cstat-no" title="statement not covered" >   return instrumentOptions.find( <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >instr =&gt; </span>i</span></span>nstr.value === value).label
+ }
+&nbsp;
+ var sdgOptions = [{ key: 'SDG1', label: 'End poverty in all its forms everywhere'},
+ { key: 'SDG2', label: 'End hunger, achieve food security and improved nutrition and promote sustainable agriculture'},
+ { key: 'SDG3', label: 'Ensure healthy lives and promote well-being for all at all ages'},
+ { key: 'SDG4', label: 'Ensure inclusive and quality education for all and promote lifelong learning' },
+ { key: 'SDG5', label: 'Achieve gender equality and empower all women and girls'},
+ { key: 'SDG6', label: 'Ensure access to water and sanitation for all'},
+ { key: 'SDG7', label: 'Ensure access to affordable, reliable, sustainable and modern energy for all' },
+ { key: 'SDG8', label: 'Promote inclusive and sustainable economic growth, employment and decent work for all'},
+ { key: 'SDG9', label: 'Build resilient infrastructure, promote sustainable industrialization and foster innovation'},
+ { key: 'SDG10', label: 'Reduce inequality within and among countries'},
+ { key: 'SDG11', label: 'Make cities inclusive, safe, resilient and sustainable'},
+ { key: 'SDG12', label: 'Ensure sustainable consumption and production patterns'},
+ { key: 'SDG13', label: 'Take urgent action to combat climate change and its impacts'},
+ { key: 'SDG14', label: 'Conserve and sustainably use the oceans, seas and marine resources'},
+ { key: 'SDG15', label: 'Sustainably manage forests, combat desertification, halt and reverse land degradation, halt biodiversity loss'},
+ { key: 'SDG16', label: 'Promote just, peaceful and inclusive societies'},
+ { key: 'SDG17', label: 'Revitalize the global partnership for sustainable development'}];
+&nbsp;
+ sdgOptions.forKey = fn
+&nbsp;
+/*
+var getSDGLabel = function(value){
+&nbsp;
+    if (Array.isArray(value)) {
+       return Array.from(value, x =&gt; getSDGLabel(x))
+    }
+    else {
+      var res = sdgOptions.find( i =&gt; i.key === value)
+      return `${res.key} -  ${res.label}`
+   }
+ }
+ */
+&nbsp;
+&nbsp;
+&nbsp;
+ sdgOptions.getSDGLabel = <span class="fstat-no" title="function not covered" >function(</span>value){
+&nbsp;
+<span class="cstat-no" title="statement not covered" >     if (Array.isArray(value)) {</span>
+<span class="cstat-no" title="statement not covered" >        return <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >A</span>rray.from(</span>value, x =&gt; sdgOptions.getSDGLabel(x))</span>
+     }
+     else {
+<span class="cstat-no" title="statement not covered" >       return sdgOptions.find( <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >i =&gt; </span>i</span></span>.key === value)
+    }
+  }
+&nbsp;
+var modeOptions = [ { key:"CDBG",  mode:'direct', name: 'Budget Support: Good Governance and Development Contract' , approach: 'BS'},
+                    { key:"SRC", mode:'direct', name: 'Budget Support: Sector Reform Contract' , approach: 'BS'},
+                    { key:"SBC" ,mode:'direct', name: 'Budget Support: State Building Contract' , approach: 'BS'},
+                    { key:"Acc-Dir" ,mode:'direct', name: 'Accompagnement direct ' , approach: 'BS'},
+                    { key:"Acc-Ind", mode:'indirect', name: 'Accompagnement (indirect)' , approach: 'BS'},
+                    { key:"GRANT-CFP", mode:'direct', name: 'grants – call for proposal', approach: 'PJ'},
+                    { key:"GRANT-DA", mode:'direct', name: 'grants – direct award' , approach: 'PJ'},
+                    { key:"Procur-D", mode:'direct', name: 'Procurement of services, supplies, works' , approach: 'PJ'},
+                    { key:"DA", mode:'indirect', name: 'with MS or Agency .. ' , approach: 'PJ'},
+                    { key:"Partner", mode:'indirect', name: 'with partner country or regional institution' , approach: 'PJ'},
+                    { key:"Blending", mode:'indirect', name: 'Contribution to Regional Blending Facilities' , approach: 'PJ' }];
+&nbsp;
+modeOptions.forKey = fn
+&nbsp;
+modeOptions.getModeFullName = function(key){
+      var <span class="cstat-no" title="statement not covered" >res = </span>modeOptions.forKey(key)
+<span class="cstat-no" title="statement not covered" >      return `${res.mode} mgt ${res.name}  `</span>
+ }
+&nbsp;
+modeOptions.filterOptionsByContext = function (manag, approach) {
+ //  console.log( `man: ${manag}    appr: ${approach}`)
+      var res = modeOptions.filter(
+          op =&gt; {
+                     return op.mode == manag &amp;&amp; op.approach == approach
+           }
+          )
+      return res
+}
+&nbsp;
+/*
+var filterOptionsByContext = function (manag, approach) {
+ //  console.log( `man: ${manag}    appr: ${approach}`)
+      var res = modeOptions.filter(
+                  op =&gt; {
+                                               return op.mode == manag &amp;&amp; op.approach == approach
+                       }
+          )
+      return res
+}
+&nbsp;
+&nbsp;
+var getModeFullName = function(key){
+      var res = modeOptions.find( i =&gt; i.key === key)
+      return `${res.mode} mgt ${res.name}  `
+ }
+*/
+ /*
+ This one is coming from iati
+ "Activity Scope", "description": "Geographic scope of activity"
+ */
+&nbsp;
+ var geoScope = [
+   {key: 1, name: "Global",
+    description: "The activity scope is global"},
+  {key: 2, name: "Regional",
+    description: "The activity scope is a supranational region"},
+  {key: 3, name: "Multi-national",
+  description: "The activity scope covers multiple countries, that don't constitute a region"},
+  {key: 4, name: "National",
+  description: "The activity scope covers one country"},
+  {key:5, name: "Sub-national: Multi-first-level administrative areas",
+  description: "The activity scope covers more than one first-level subnational administrative areas (e.g. counties, provinces, states)"},
+   {key:6, name: "Sub-national: Single first-level administrative area",
+  description: "The activity scope covers one first-level subnational administrative area (e.g. country, province, state)"},
+  {key:7, name: "Sub-national: Single second-level administrative area",
+   description: "The activity scope covers one second-level subnational administrative area (e.g. municipality or district)"},
+  {key:8, name: "Single location",
+  description: "The activity scope covers one single location (e.g. town, village, farm)"}
+]
+geoScope.forKey = fn
+&nbsp;
+&nbsp;
+var defaultPart =  {
+  name: 'part name placeholder',
+  management: 'direct',
+  mode: modeOptions[7],
+  channel: '',
+  implementingPartner: '',
+  EU_amount: 0,
+  other_amount: 0,
+  comment: ''
+}
+&nbsp;
+&nbsp;
+var  defaultAction = {
+  id: 1,
+  year: 2017,
+  name: '',
+  description: '' ,
+  initialAD: true,
+  geoScope: geoScope[3],
+  decisionDate: '',
+  startingDate: '',
+  implementationPeriod: 48,
+  approach: approachOptions[0].key,
+  financingInstrument: instrumentOptions[0],
+  signFinancingAgreement: false,
+  rioMarkers: rioMarkers,
+  generalMarkers: generalMarkers,
+  sdg:[ sdgOptions[0] ],
+  EU_Delegation: 'BJ',
+  benefiting_zone: ['BJ'],
+  action_location: 'indicate location in the country',
+  parts: []
+};
+&nbsp;
+ export {approachOptions, instrumentOptions,
+   sdgOptions,  modeOptions,
+   getInstrumentName,
+   defaultAction,
+   defaultPart, geoScope,
+   getApproachName, designStages};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jan 15 2018 22:24:24 GMT+0100 (CET)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
