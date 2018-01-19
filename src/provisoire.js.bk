@@ -1,0 +1,44 @@
+var  main = {
+  data() {
+      return
+      {
+        actionForm: {
+          id: 1,
+          year: 2017,
+          name: '',
+          initialAD: true,
+          approach: 'Project',
+          financingInstrument: 'DCI',
+          EU_Delegation: 'BJ',
+          benefiting_zone: 'BJ',
+          parts: [
+            {
+                id: 1,
+                name:'First part',
+                management: 'central',
+                mode: 'Project grant call',
+                EU_amount: 100000,
+                other_amount: 100000,
+                comment: 'call for propo on human rights'
+              },
+              {
+                id: 2,
+                name:'Second part',
+                management: 'decentralised',
+                mode: 'Delegated agreement',
+                delegated_name: 'Agency XX',
+                EU_amount: 100000,
+                other_amount: 100000,
+                comment: 'second part with contrib from benef and agency'
+            }
+          ]
+        },
+        rules: {
+            name: [
+              { required: true, message: 'Please input Action name', trigger: 'blur' },
+              { min: 8, max: 80, message: 'Length should be 8 to 80', trigger: 'blur' }
+            ]
+        }
+      };
+}
+}

@@ -41,7 +41,7 @@ export default {
   },
   methods: {
          generate() {
-             generateDocx('../static/tag-example.docx', this.source )
+             generateDocx('./static/tag-example.docx', this.source )
         },
         toggleJson() {
             this.showJson = !this.showJson

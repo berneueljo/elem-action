@@ -226,9 +226,6 @@ export default {
  </partTable>
    </div>
    <div id="second">
-   <h1> Resulting JSON </h1>
-       <pre>{{generalData}}</pre>
-       <pre>{{ actionForm }}</pre>
         <GenerateDocs :source="generateFullSnapshot()" />
      </div>
    </div>
