@@ -260,7 +260,11 @@ countries.forEach((country) => {
     if (regions.has(reg.code) ) {
           reg = regions.get(reg.code)
         //  console.log(reg.children.indexOf(subreg))
-          var  subr =  reg.children.find( sb => sb.code === parseInt(country["sub-region-code"]))
+        var subr
+          if (reg !=null && typeof reg !== 'undefined'  ){
+                      subr =  reg.children.find( sb => sb.code === parseInt(country["sub-region-code"]))
+
+          }
 
           if ( subr !== undefined){
       //      console.log( "2a - : " +  subr.name + " "  +  reg.name )

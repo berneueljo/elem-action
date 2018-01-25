@@ -23,18 +23,19 @@ export default {
         </el-option>
       </el-select>
     </el-form-item>
-      <el-form-item label="Geo">
+      <el-form-item label="Geo Benef.">
           <el-cascader
+               multiple
               :options="geo"
               :props="geoProps"
               change-on-select
-              placeholder="select a country"
+              placeholder="select a country or region"
               v-model="actionForm.benefiting_zone"
               >
             </el-cascader>
            </el-form-item>
            <el-form-item label="Action location" prop="action_location" >
-                 <el-input placeholder="action location" v-model="actionForm.action_location"></el-input>
+                 <el-input placeholder="describe action location" v-model="actionForm.action_location"></el-input>
            </el-form-item>
   </el-form>
 </div>

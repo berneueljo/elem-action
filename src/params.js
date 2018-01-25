@@ -1,5 +1,9 @@
 import {generalMarkers , rioMarkers} from './markers.js'
 
+
+//import {implementingPartners} from './implementingPartners.js'
+
+
 rioMarkers.forEach(p  => p.value = 0)
 generalMarkers.forEach(p  => p.value = 0)
 
@@ -21,7 +25,7 @@ var getApproachName = function(value){
 
 
 var designStages = [
-  { key: 1, label: 'concept' , description: 'first preliminary step when the action is only a basic relevant idea'},
+  { key: 1, label: 'concept' , description: 'first preliminary step when the action is only a concept'},
   { key: 2, label: 'identification' , description: 'first active step where the justification, relevance of the action is defined'},
   { key: 3, label: 'formulation' , description: 'second design stage where the action is fully defined'},
   { key: 4, label: 'finalised' , description: 'action is ready for formal decision process'},
@@ -166,8 +170,8 @@ var defaultPart =  {
   name: 'part name placeholder',
   management: 'direct',
   mode: modeOptions[7],
-  channel: '',
-  implementingPartner: '',
+  channel: [],
+  implementingPartner: [],
   EU_amount: 0,
   other_amount: 0,
   comment: ''
@@ -184,6 +188,7 @@ var  defaultAction = {
   decisionDate: '',
   startingDate: '',
   implementationPeriod: 48,
+  status: designStages[0],
   approach: approachOptions[0].key,
   financingInstrument: instrumentOptions[0],
   signFinancingAgreement: false,

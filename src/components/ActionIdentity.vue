@@ -5,32 +5,57 @@
             :model="actionForm"
             :rules="rules" label-width="150px">
     <el-form-item label="Id">
-      <el-col :span="8">
-        <el-input-number v-model="actionForm.year" controls-position="right"
-          :min="rules.year[0].min" :max="rules.year[0].max" ></el-input-number>
-      </el-col>
-      <el-col class="line" :span="4">-</el-col>
-      <el-col :span="8">
-        <el-input-number v-model="actionForm.id" controls-position="right" :min="rules.id[0].min" :max="rules.id[0].max"></el-input-number>
-      </el-col>
+      <el-row :gutter="10">
+        <el-col :span="6">
+          <div> Year:
+             <el-input-number v-model="actionForm.year" controls-position="right"
+                :min="rules.year[0].min" :max="rules.year[0].max" ></el-input-number>
+          </div>
+        </el-col>
+        <el-col class="line" :span="2"><div>-</div></el-col>
+        <el-col :span="6">
+          <div>
+            Number:
+          <el-input-number v-model="actionForm.id" controls-position="right" :min="rules.id[0].min" :max="rules.id[0].max"></el-input-number>
+        </div>
+        </el-col>
+</el-row>
+
+
     </el-form-item>
     <el-form-item label="Action Title" prop="name" >
       <el-input placeholder="please input the action title" v-model="actionForm.name"></el-input>
     </el-form-item>
+    <el-form-item label="Description">
+      <el-input
+        type="textarea"
+        :autosize="{ minRows: 2, maxRows: 9}"
+        placeholder="Please input a short description of the action"
+        v-model="actionForm.description">
+      </el-input>
+    </el-form-item>
 
-        <el-form-item label="Tentative dates" prop="decisionDate" >
+        <el-form-item label="Indicative pipeline" prop="decisionDate" >
+
+          <el-row :gutter="10">
+         <el-col :span="7">
           <div>
-          <span> Decision </span>
+          <span> EU Decision </span></p>
           <span> <el-date-picker
+            size="mini"
             type="month"
             v-model="actionForm.decisionDate"
             placeholder="Pick a month"
             :picker-options="pickerOptions" >
       </el-date-picker> </span>
     </div>
+  </el-col>
+  <el-col :span="7">
     <div>
-      <span>Activities </span><span>
+      <span>Activities' start </span></p>
+      <span>
         <el-date-picker
+            size="mini"
             v-model="actionForm.startingDate"
             type="month"
             placeholder="Pick a month"
@@ -38,25 +63,30 @@
           </el-date-picker>
         </span>
       </div>
-        </el-form-item>
-        <el-form-item label="Implementation period" prop="implementationPeriod" >
-          <el-input-number v-model="actionForm.implementationPeriod"
-             controls-position="right"
-             :min="12" :max="100" >
-           </el-input-number> months
-        </el-form-item>
-
-    <el-form-item label="Description">
-      <el-input
-        type="textarea"
-        :autosize="{ minRows: 2, maxRows: 7}"
-        placeholder="Please input a short description of the action"
-        v-model="actionForm.description">
-      </el-input>
+    </el-col>
+    <el-col :span="7">
+      <div>
+        <span>Duration </span></p><span>
+      <el-input-number
+         size="mini"
+         v-model="actionForm.implementationPeriod"
+         controls-position="right"
+         :min="12" :max="100" >
+       </el-input-number> months
+     </span>
+   </div>
+    </el-col>
+    </el-row>
     </el-form-item>
-
-    <el-form-item label="Initial fiche" prop="initialAD" >
-      <el-checkbox v-model="actionForm.initialAD"></el-checkbox>
+    <el-form-item label="Design status" prop="status" >
+      <el-select v-model="actionForm.status" value-key="key" placeholder="Select document status">
+        <el-option
+              v-for="item in designStages"
+              :key="item.key"
+              :label="item.label"
+              :value="item">
+        </el-option>
+      </el-select>
     </el-form-item>
 
   </el-form>

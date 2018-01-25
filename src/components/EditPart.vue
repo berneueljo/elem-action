@@ -19,6 +19,8 @@
           </el-option>
         </el-select>
       </el-form-item>
+
+      <!--
       <el-form-item label="Channel">
         <el-cascader
             :options="channelsTree.children"
@@ -29,8 +31,10 @@
             >
           </el-cascader>
       </el-form-item>
+    -->
       <el-form-item label="Partner">
         <el-cascader
+            :show-all-levels="false"
             :options="partners"
             :props="partnersProps"
             change-on-select
@@ -39,6 +43,7 @@
             >
           </el-cascader>
       </el-form-item>
+
       <el-form-item label="EU Amount">
       <el-input-number v-model="part.EU_amount"
            controls-position="right" :step="1000000" :min="0" :max="99999999"></el-input-number>

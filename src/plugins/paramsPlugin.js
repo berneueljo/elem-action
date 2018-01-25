@@ -10,6 +10,10 @@ import {instrumentOptions, sdgOptions, getInstrumentName,
 import {implementingPartners} from '../implementingPartners.js'
 
 import dacChannelsTree from '../dac_Channels.js'
+
+
+import dac_root from '../dac_sectors.js'
+
 //import {example} from './example-data.js'
 
 // This is your plugin object. It can be exported to be used anywhere.
@@ -40,9 +44,10 @@ const paramsPlugin = {
           label: 'name',
           value: 'name',
           children: 'children'
-        }
-        }
+        },
+        dacSectorTree: dac_root
       }
+     }
     }
   )
   }

@@ -385,7 +385,7 @@ var fn = function(node){
   }
 }
 
-fn(root)
+//fn(root)
 
 /*
 channels.forEach(  (v,k) => {

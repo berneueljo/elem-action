@@ -15,7 +15,8 @@
      <el-table-column prop="name" label="Title" width="300"> </el-table-column>
      <el-table-column type="expand">
       <template slot-scope="props">
-        <p>{{ props.row.management }} Mode: {{ props.row.mode }}</p>
+        <p>{{ props.row.management }} Mode: {{ props.row.mode.name }}</p>
+        <p>{{ props.row.implementingPartner.slice(-1)[0] }}</p>
         <p>Comment: {{ props.row.comment }}</p>
       </template>
     </el-table-column>

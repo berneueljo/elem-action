@@ -64,12 +64,23 @@ export default {
               'isMultiCountry' : this.actionForm.geoScope.key <= 3,
               'totalEstimatedCost': this.totalEstimatedCost
                       .toLocaleString( 'en-UK',
-                         { minimumFractionDigits: 2, style: "currency", currency: "EUR"}
+                         { minimumFractionDigits: 0, style: "currency", currency: "EUR"}
                     ),
               'totalEUContribution': this.totalEUContribution
                       .toLocaleString( 'en-UK',
-                          { minimumFractionDigits: 2, style: "currency", currency: "EUR"}
-                    )
+                          { minimumFractionDigits: 0, style: "currency", currency: "EUR"}
+                    ),
+              'totalOtherContribution': this.totalOtherContribution
+                      .toLocaleString( 'en-UK',
+                          { minimumFractionDigits: 0, style: "currency", currency: "EUR"}
+                    ),
+              'grantsCall': this.actionForm.parts.filter( p => p.mode.key === 'GRANT-CFP'),
+              'grantsDirect': this.actionForm.parts.filter( p => p.mode.key === 'GRANT-DA'),
+              'procurmentDirect': this.actionForm.parts.filter( p => p.mode.key === 'Procur-D'),
+              'delegatedAgreement': this.actionForm.parts.filter( p => p.mode.key === 'DA'),
+              'partner': this.actionForm.parts.filter( p => p.mode.key === 'Partner'),
+              'blending': this.actionForm.parts.filter( p => p.mode.key === 'Blending')
+
             }
           },
     totalEUContribution() {
@@ -78,6 +89,11 @@ export default {
     totalEstimatedCost() {
            return this.actionForm.parts
                       .map( v  =>  v.EU_amount + v.other_amount)
+                      .reduce(function(a, b) { return a + b; }, 0);
+    },
+    totalOtherContribution() {
+           return this.actionForm.parts
+                      .map( v  => v.other_amount)
                       .reduce(function(a, b) { return a + b; }, 0);
     }
   },
@@ -119,9 +135,9 @@ export default {
          res.parts.forEach( p =>
             {
                   p.EU_amount_txt = p.EU_amount.toLocaleString( 'en-UK',
-                                  { minimumFractionDigits: 2, style: "currency", currency: "EUR"} )
+                                  { minimumFractionDigits: 0, style: "currency", currency: "EUR"} )
                   p.other_amount_txt = p.other_amount.toLocaleString( 'en-UK',
-                                  { minimumFractionDigits: 2, style: "currency", currency: "EUR"} )
+                                  { minimumFractionDigits: 0, style: "currency", currency: "EUR"} )
                   p.modeFullName = this.modes.getModeFullName(p.mode.key)
            })
            res.rioMarkers.forEach( m => {
@@ -147,86 +163,127 @@ export default {
 
 <style>
 
+.el-header {
+  background-color: #B3C0D1;
+  color: #333;
+  line-height: 50px;
+}
+
+.el-aside {
+  color: #333;
+}
+
 #app {
-  max-width: 1200px;
+  /* max-width: 1200px;
+  */
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin: 2px;
-  padding: 10px;
+  margin: 1px;
+  padding: 2px;
 }
+/*
 #first {
   float: left;
   width: 70%;
   border-style: solid;
   border-width: thin;
-  background: Cyan;
+  background: Cyan
 
 }
+*/
+/*
 #second {
   margin-left: 70%;
 }
+*/
 .basic-box {
-  margin: 5px;
-  padding: 10px;
-  border-style: ridge;
+  margin: 1px;
+  padding: 5px;
+  border-style: none;
   border-width: thin;
   background: LightCyan;
 }
 @media print {
-  #app {
-    max-width: 1500px;
+
+ h1 { page-break-before : right }
+/*  #app {
+    max-width: 1200px;
+    height: 700 px;
   }
+  */
   #first {
     float: left;
     width: 100%;
   }
 #second {display:none;}
+.el-header {display:none;}
+.el-aside {display:none;}
+
 }
 </style>
 <template>
-  <div id="app">
-    <div id="first">
-    <ActionIdentity :actionForm="actionForm" >
-        <h1> Basic information - {{actionForm.name}}</h1>
-    </ActionIdentity>
-<ActionGeo :actionForm="actionForm" >
-  <h1>Localisation</h1>
-</ActionGeo>
-<ActionFinancing :actionForm="actionForm" >
-   <h1>Financing </h1>
-</ActionFinancing>
+  <el-container style=" border: 1px solid #eee">
+     <el-aside width="250px" style="background-color: rgb(238, 241, 246)">
+       <div>
+          WISH LIST : <br/>Insert step follow up  list
+       </div>
+       <div id="second">
+            <GenerateDocs :source="generateFullSnapshot()" />
+         </div>
+     </el-aside>
 
-<ActionSDG :actionForm="actionForm" >
-  <h1>Sustainable development goals (SDG)</h1>
-</ActionSDG>
+     <el-container>
+       <el-header style="text-align: right; font-size: 20px">
+         <span>Action design wizard</span>
+       </el-header>
+       <el-main>
 
-<ActionMarkers :markers="actionForm.rioMarkers" :actionForm="actionForm">
-  <h1>Rio Markers</h1>
-</ActionMarkers>
-<ActionMarkers :markers="actionForm.generalMarkers" :actionForm="actionForm">
-  <h1>General Markers</h1>
-</ActionMarkers>
+      <div id="app">
+        <div id="first">
+        <ActionIdentity :actionForm="actionForm" >
+            <h1> Basic information - {{actionForm.name}}</h1>
+        </ActionIdentity>
+    <ActionGeo :actionForm="actionForm" >
+      <h1>Localisation</h1>
+    </ActionGeo>
+    <ActionFinancing :actionForm="actionForm" >
+       <h1>Financing </h1>
+    </ActionFinancing>
 
-    <EditPart
-          v-if="dialogPartVisible"
-          :part="getSelectedPart()"
-          :approach="actionForm.approach"
-          @hide="hidePart"
-            />
+    <ActionSDG :actionForm="actionForm" >
+      <h1>Sustainable development goals (SDG)</h1>
+    </ActionSDG>
 
- <partTable :parts="actionForm.parts"
-      @remove="removePart"
-      @add="addPart"
-      @edit="editPart"
-       >
-       <h1>Decomposition du budget</h1>
- </partTable>
-   </div>
-   <div id="second">
-        <GenerateDocs :source="generateFullSnapshot()" />
-     </div>
-   </div>
+    <ActionMarkers :markers="actionForm.rioMarkers" :actionForm="actionForm">
+      <h1>Rio Markers</h1>
+    </ActionMarkers>
+    <ActionMarkers :markers="actionForm.generalMarkers" :actionForm="actionForm">
+      <h1>General Markers</h1>
+    </ActionMarkers>
+
+        <EditPart
+              v-if="dialogPartVisible"
+              :part="getSelectedPart()"
+              :approach="actionForm.approach"
+              @hide="hidePart"
+                />
+
+     <partTable :parts="actionForm.parts"
+          @remove="removePart"
+          @add="addPart"
+          @edit="editPart"
+           >
+           <h1>Budget structure</h1>
+     </partTable>
+       </div>
+
+       </div>
+
+       </el-main>
+     </el-container>
+
+ </el-container>
 </template>
